@@ -101,7 +101,7 @@
       background: rgba(0, 0, 0, 0.5);
       align-items: center;
       justify-content: center;
-      max-width: 80%;
+      max-width: 100%;
     }
 
     .modal-content {
@@ -112,7 +112,7 @@
       color: #d32f2f;
       font-weight: bold;
       text-align: center;
-      max-width: 90%;
+      max-width: 80%;
     }
 
     @media (max-width: 768px) {
@@ -150,6 +150,11 @@
     <div class="modal-content" id="secondModalMessage">CREATIVE MISUSE Y'ALL</div>
   </div>
 
+  <!-- Second Modal -->
+  <div class="modal" id="modal3" onclick="hideThirdModal()">
+    <div class="modal-content"><a href="https://leils.github.io/web-sites/map?layout=radial">let's talk about web material</a></div>
+  </div>
+
   <script>
     let firstModalShown = false;
 
@@ -168,7 +173,16 @@
     }
 
     function hideSecondModal() {
+      const param = new URLSearchParams(window.location.search).get("msg");
       document.getElementById("modal2").style.display = "none";
+
+      if (param == "3c") {
+        document.getElementById("modal3").style.display = "flex";
+      }
+    }
+
+    function hideThirdModal() {
+      document.getElementById("modal3").style.display = "none";
     }
 
     function setSecondModalMessage() {
